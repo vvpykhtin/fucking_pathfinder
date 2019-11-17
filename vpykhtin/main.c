@@ -4,5 +4,8 @@
 
 int main(int c, char **v)
 {
-  printf("%d",mx_errorcase_1(c, v[1]));
+	if(c > 1) {
+ //printf("%d",mx_errorcase_1(c, v[1]));
+  		mx_errorcase_2(v[1]);
+	}
 }

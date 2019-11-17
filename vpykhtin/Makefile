@@ -64,6 +64,7 @@ SRC = ./mx_printchar.c \
 	./digits.c \
 	./mx_isalf.c \
 	./mx_errorcase_1.c \
+	./mx_errorcase_2.c
 
 SRCS = ./src/mx_printchar.c \
 	./src/mx_strlen.c \
@@ -124,7 +125,8 @@ SRCS = ./src/mx_printchar.c \
 	./src/isdigits.c \
 	./src/digits.c \
 	./src/mx_isalf.c \
-	./src/mx_errorcase_1.c
+	./src/mx_errorcase_1.c \
+	./src/mx_errorcase_2.c
 
 OUT = mx_printchar.o \
 	mx_strlen.o \
@@ -185,7 +187,8 @@ OUT = mx_printchar.o \
 	isdigits.o \
 	digits.o \
 	mx_isalf.o \
-	mx_errorcase_1.o
+	mx_errorcase_1.o \
+	mx_errorcase_2.o
 
 OUT1 = ./obj/mx_printchar.o \
 	./obj/mx_strlen.o \
@@ -246,7 +249,8 @@ OUT1 = ./obj/mx_printchar.o \
 	./obj/isdigits.o \
 	./obj/digits.o \
 	./obj/mx_isalf.o \
-	./obj/mx_errorcase_1.o
+	./obj/mx_errorcase_1.o \
+	./obj/mx_errorcase_2.o
 
 CFLSGS = -std=c11 -Wall -Wextra -Wpedantic -Werror 
 

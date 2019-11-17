@@ -18,7 +18,10 @@ bool mx_isspace(char c);
 void printer(char *c);
 int isdigits(char *c);
 int mx_isalf(char c);
+int digits(char *c);
+bool mx_errorcase_2(char * v);
 bool mx_errorcase_1(int c , char * v);
+
 // UTILS PACK
 void mx_printchar(char c);
 void mx_print_unicode(wchar_t c);
