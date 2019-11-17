@@ -1,0 +1,15 @@
+NAME = hui
+CFLAGS = -std=c11 -Wall -Wextra -Werror -Wpedantic
+all: install clean launch
+launch: 
+	@./$(NAME)
+install: 
+	@cp inc/libmx.h .
+	@clang $(CFLAGS) -c main.c -o main.o -I libmx.h
+	@clang $(CFLAGS) obj/*.o main.o -o $(NAME)
+uninstall: 
+	@rm $(NAME)
+clean: 
+	@rm main.o
+	@rm libmx.h
+reinstall: uninstall all

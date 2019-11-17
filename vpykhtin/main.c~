@@ -1,0 +1,34 @@
+#include "libmx.h"
+#include <stdio.h>
+#include <fcntl.h>
+
+void printer(char *c)
+{
+  write(2, c, mx_strlen(c));
+}
+void errorcase(int c , char * v)
+{
+  if(c != 2)  printer("usage: ./pathfinder [filename]");
+  else {
+    int file = open(v, O_RDONLY);
+    char buf[1];
+    if(file < 0) {
+      printer("error: file ");
+      printer(v);
+      printer(" doesn't exist");
+    }
+    else {
+    int n = read(file, buf, sizeof(buf));
+    if (n <= 0) {
+      printer("error: file ");
+      printer(v);
+      printer(" is empty");
+      }
+    }
+    close (file);
+  }
+}
+int main(int c, char ** v)
+{
+  errorcase(c, v[1]);
+}
