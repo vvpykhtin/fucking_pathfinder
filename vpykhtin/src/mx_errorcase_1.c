@@ -23,12 +23,8 @@ bool mx_errorcase_1(int c , char * v)
       else {
 	char * s = mx_file_to_str(v);
 	char ** arr = NULL;
-	int count_n = 0;
-	//int count_isl = digits(arr[0]);
-	for(int i = 0; s[i]; i++)
-	  {
-	    if(s[i] == '\n') count_n++;
-	  }
+	int count_n = count_lines(s);
+
 	arr = mx_strsplit(s, '\n');
 	if(!isdigits(arr[0]))
 	  {
