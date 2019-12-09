@@ -9,5 +9,6 @@ int count_lines(char *v)
 			result++;
 	}
 	if(v[0] == '\n') result--;
+
 	return result;
 }

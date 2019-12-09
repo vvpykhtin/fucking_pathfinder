@@ -7,7 +7,7 @@ bool mx_errorcase_2(char * v)
 	char **arr_of_isl;
     int res = 0;
 	arr_of_isl = mx_ss(s, '-', ',', '\n');	
-	int size = count_lines(s) * 3 -2;
+	int size = (count_lines(s)-1) * 3;
 
 	for(int i = 1; i < size; i++)
 	{
@@ -25,8 +25,8 @@ bool mx_errorcase_2(char * v)
 		}
 		res++;
 	}
-	printf("%d    %d\n",  digits(arr_of_isl[0]),res);
-if(res != digits(arr_of_isl[0]))
+
+if(res - 1!= digits(arr_of_isl[0]))
 {
 	printer("error: invalid number of islands");
 	return 0;
