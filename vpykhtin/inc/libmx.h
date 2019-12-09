@@ -25,6 +25,8 @@ int count_lines(char *v);
 char **mx_ss(const char *r, char c, char f, char d);
 void mx_printline();
 void mx_pathfinder(char **arr, char **line);
+bool mx_error(int c, char *v);
+void mx_matrix(char *v);
 
 // UTILS PACK
 void mx_printchar(char c);

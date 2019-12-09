@@ -68,7 +68,9 @@ SRC = ./mx_printchar.c \
 	./count_lines.c \
 	./mx_ss.c \
 	./mx_printline.c \
-	./mx_pathfinder.c
+	./mx_pathfinder.c \
+	./mx_errors.c \
+	./mx_matrix.c
 
 SRCS = ./src/mx_printchar.c \
 	./src/mx_strlen.c \
@@ -134,7 +136,9 @@ SRCS = ./src/mx_printchar.c \
 	./src/count_lines.c \
 	./src/mx_ss.c \
 	./src/mx_printline.c \
-	./src/mx_pathfinder.c
+	./src/mx_pathfinder.c \
+	./src/mx_errors.c \
+	./src/mx_matrix.c
 
 OUT = mx_printchar.o \
 	mx_strlen.o \
@@ -200,7 +204,9 @@ OUT = mx_printchar.o \
 	count_lines.o \
 	mx_ss.o \
 	mx_printline.o \
-	mx_pathfinder.o
+	mx_pathfinder.o \
+	mx_errors.o \
+	mx_matrix.o
 
 OUT1 = ./obj/mx_printchar.o \
 	./obj/mx_strlen.o \
@@ -266,7 +272,9 @@ OUT1 = ./obj/mx_printchar.o \
 	./obj/count_lines.o \
 	./obj/mx_ss.o \
 	./obj/mx_printline.o \
-	./obj/mx_pathfinder.o
+	./obj/mx_pathfinder.o \
+	./obj/mx_errors.o \
+	./obj/mx_matrix.o
 
 CFLSGS = -std=c11 -Wall -Wextra -Wpedantic -Werror 
 
