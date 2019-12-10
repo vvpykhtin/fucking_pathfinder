@@ -70,7 +70,8 @@ SRC = ./mx_printchar.c \
 	./mx_printline.c \
 	./mx_pathfinder.c \
 	./mx_errors.c \
-	./mx_matrix.c
+	./mx_matrix.c \
+	./mx_onlywords.c
 
 SRCS = ./src/mx_printchar.c \
 	./src/mx_strlen.c \
@@ -138,7 +139,8 @@ SRCS = ./src/mx_printchar.c \
 	./src/mx_printline.c \
 	./src/mx_pathfinder.c \
 	./src/mx_errors.c \
-	./src/mx_matrix.c
+	./src/mx_matrix.c \
+	./src/mx_onlywords.c
 
 OUT = mx_printchar.o \
 	mx_strlen.o \
@@ -206,7 +208,8 @@ OUT = mx_printchar.o \
 	mx_printline.o \
 	mx_pathfinder.o \
 	mx_errors.o \
-	mx_matrix.o
+	mx_matrix.o \
+	mx_onlywords.o
 
 OUT1 = ./obj/mx_printchar.o \
 	./obj/mx_strlen.o \
@@ -274,7 +277,8 @@ OUT1 = ./obj/mx_printchar.o \
 	./obj/mx_printline.o \
 	./obj/mx_pathfinder.o \
 	./obj/mx_errors.o \
-	./obj/mx_matrix.o
+	./obj/mx_matrix.o \
+	./obj/mx_onlywords.o
 
 CFLSGS = -std=c11 -Wall -Wextra -Wpedantic -Werror 
 

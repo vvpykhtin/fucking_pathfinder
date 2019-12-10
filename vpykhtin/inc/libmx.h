@@ -24,9 +24,10 @@ bool mx_errorcase_1(int c , char * v);
 int count_lines(char *v);
 char **mx_ss(const char *r, char c, char f, char d);
 void mx_printline();
-void mx_pathfinder(char **arr, char **line);
+void mx_pathfinder(char *v);
 bool mx_error(int c, char *v);
-void mx_matrix(char *v);
+int **mx_matrix(char *v);
+char **mx_onlywords(char **arr);
 
 // UTILS PACK
 void mx_printchar(char c);

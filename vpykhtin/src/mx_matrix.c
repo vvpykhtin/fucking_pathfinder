@@ -1,45 +1,32 @@
 #include "libmx.h"
-int str_mid(const char *s, char c, char d, char f)
-{
-    int count = 0;
-    while(*s != c && *s != d && *s != f && *s != '\0' && isdigits((char )*s))
-    {
-	count++;
-        s++;
-    }
-    return count;
-}
-char **mx_onlywords(const char *r, char c, char f, char d)
-{
 
-	char *s =  (char *)r;
-    int size = count_lines(s) * 3 -2;
-    char **arr = malloc((size + 1) * sizeof(char *));
-    for(int i = 0; i < size; i++)
-    {
-	while((*s == c || *s == d || isdigits((char )*s)|| *s == f )&& *s != '\0')
-	{
-	    s++;
-	}
-	arr[i] = mx_strnew(str_mid(s, c, d,f));
-	int j = 0;
-	while(*s != c && !isdigits((char )*s) && *s != d && *s != f && *s != '\0')
-	{
-	    arr[i][j] = *s;
-	    s++;
-	    j++;
-	}
-    }
-    arr[size] = NULL;
-    return arr;
-}
-void mx_matrix(char *v)
-{
+static int loc(char **arr, char *s);
+
+int **mx_matrix(char *v) {
     char *s = mx_file_to_str(v);
-    char **arr = mx_onlywords(s, '-', ',', '\n');
-    // int mx_matrix[arr[0]][arr[0]];
-    // char **arr_isl;
-	printf("%s\n", arr[0]);
+    char **arr = mx_ss(s, '-', ',', '\n');
+    int len = digits(arr[0]);
+    int **matrix = (int **)malloc(len * sizeof(int*));
 
+    for (int i = 0; i < len; i++) {
+        matrix[i] = (int *)malloc(len * sizeof(int));
+        for (int j = 0; j < len; j++) {
+            matrix[i][j] = 0;
+        }
+    }
+    for (int i = 1; arr[i] != NULL; i+=3) {
+        matrix[loc(arr, arr[i])][loc(arr, arr[i+1])] = digits(arr[i+2]);
+        matrix[loc(arr, arr[i+1])][loc(arr, arr[i])] = digits(arr[i+2]);
+    }
+    return matrix;
 }
 
+static int loc(char **arr, char *s)
+{
+    char **isl = mx_onlywords(arr);
+    int i = 0;
+
+    while (mx_strcmp(isl[i], s) != 0)
+        i++;
+    return i;
+}
