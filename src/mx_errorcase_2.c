@@ -4,11 +4,11 @@ static int count(char **arr_of_isl, int size);
 
 bool mx_errorcase_2(char * v) {	
     char * s = mx_file_to_str(v);
-    char **arr_of_isl;
+    char **arr_of_isl = mx_ss(s, '-', ',', '\n');
     int res = 0;
-    arr_of_isl = mx_ss(s, '-', ',', '\n');	
     int size = (count_lines(s)-1) * 3;
 
+    free(s);
     res = count(arr_of_isl, size);
     if(res - 1!= digits(arr_of_isl[0])) {
         printer("error: invalid number of islands");

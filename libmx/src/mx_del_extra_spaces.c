@@ -1,42 +1,44 @@
 #include "libmx.h"
 
-char *mx_del_extra_spaces(const char *str) {
-    if (str == NULL) {
+static int get_extra_len(const char *str)
+{
+    int len = 0;
+
+    while (*str)
+    {
+        if (mx_is_space(*str))
+            while (mx_is_space(*str))
+                str++;
+        else
+            str++;
+        len++;
+    }
+    return len;
+}
+
+char *mx_del_extra_spaces(const char *str)
+{
+    int len = 0;
+    char *s = NULL;
+    char *buf = NULL;
+
+    if (!str)
         return NULL;
+    buf = mx_strtrim(str);
+    len = get_extra_len(buf); 
+    s = mx_strnew(len);
+    for (int i = 0, j = 0; i < len; i++)
+    {
+        if (mx_is_space(buf[i + j]))
+        {
+            s[i] = ' ';
+            while (mx_is_space(buf[i + j + 1]))
+                j++;
+        }
+        else
+            s[i] = buf[i + j];
     }
-    char *trim = mx_strtrim(str);
-    int i = 0;
-    int count = 0;
-    while (trim[i] != '\0') {
-    	if (mx_isspace(trim[i]) == 1) {
-    		i++;
-    		count++;
-    		while (mx_isspace(trim[i]) == 1) {
-    			i++;
-    		}
-    	}
-    	else {
-    		i++;
-    		count++;
-    	}
-    }
-    char *s = mx_strnew(count);
-    int j = 0;
-    int h = 0;
-    while (trim[j] != '\0') {
-    	if (mx_isspace(trim[j]) == 1) {
-    		s[h] = ' ';
-    		h++;
-    		j++;
-    		while (mx_isspace(trim[j]) == 1) {
-    			j++;
-    		}
-    	}
-    	else {
-    		s[h] = trim[j];
-    		j++;
-    		h++;
-    	}
-    }
+    mx_strdel(&buf);
     return s;
 }
+

@@ -4,7 +4,7 @@ int str_mod(const char *s, char c, char d, char f)
     int count = 0;
     while(*s != c && *s != d && *s != f && *s != '\0')
     {
-	count++;
+	    count++;
         s++;
     }
     return count;

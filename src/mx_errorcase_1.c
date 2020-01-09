@@ -1,6 +1,6 @@
 #include "pathfinder.h"
 
-static bool file_open(char *v);
+static void free_arr(char **arr, char * s);
 static void printer_line(int i);
 static bool error_line(char ** arr, int count_n);
 static bool fun(int i, int j, char **arr);
@@ -17,31 +17,19 @@ bool mx_errorcase_1(int c , char * v) {
     char **arr= mx_strsplit(s, '\n');
     if (!isdigits(arr[0])) {
         printer("error: line 1 is not valid");
+        free_arr(arr, s);
         return 0;
     }
-    if (!error_line(arr, count_n))
+    if (!error_line(arr, count_n)) {
+        free_arr(arr, s);
         return 0;
+    }
+    free_arr(arr, s);
     return 1;
 }
-
-static bool file_open(char *v) {
-    int file = open(v, O_RDONLY);
-    char buf[1];
-    int n = read(file, buf, sizeof(buf));
-
-    if (file < 0) {
-        printer("error: file ");
-        printer(v);
-        printer(" does not exist");
-        return 0;
-    }
-    if (n <= 0) {
-        printer("error: file ");
-        printer(v);
-        printer(" is empty");
-        return 0;
-    }
-    return 1;
+static void free_arr(char **arr, char * s){
+    mx_del_strarr(&arr);
+    free(s);
 }
 
 static void printer_line(int i) {

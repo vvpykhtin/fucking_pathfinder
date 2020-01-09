@@ -2,23 +2,23 @@
 
 void mx_printint(int n)
 {
-  int count = 1;
-  long int nn = n;
-  long int n1 = n;
-  if(n1 < 0)
+    int cn = n;
+    int count = 1;
+
+    if (n < 0)
+        mx_printchar('-');
+    while (cn > 9 || cn < -9)
     {
-      mx_printchar('-');
-      n1 *= -1;
+        cn /= 10;
+        count *= 10;
     }
-  while(nn >= 10 || nn <= -10)
+    while (count)
     {
-      nn /=10;
-      count *= 10;
-    }
-  while(count >= 1)
-    {
-      mx_printchar(n1 / count + 48);
-      n1 %= count;
-      count /= 10;
+        if (n < 0)
+            mx_printchar(n / count * -1 + 48);
+        else
+            mx_printchar(n / count + 48);
+        n %= count;
+        count /= 10;
     }
 }

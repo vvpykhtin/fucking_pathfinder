@@ -1,46 +1,13 @@
-NAME = pathfinder
+NAME = test
 
 CFLAGS = -std=c11 -Wall -Wextra -Werror -Wpedantic
-SRCS = src/count_lines.c \
-	src/isdigits.c \
-	src/mx_errorcase_1.c \
-	src/mx_errors.c \
-	src/mx_matrix.c \
-	src/mx_pathfinder.c \
-	src/mx_ss.c \
-	src/digits.c \
-	src/main.c \
-	src/mx_errorcase_2.c \
-	src/mx_isalf.c \
-	src/mx_onlywords.c \
-	src/mx_printline.c \
-	src/printer.c
-
-RSRCS = count_lines.c \
-	isdigits.c \
-	mx_errorcase_1.c \
-	mx_errors.c \
-	mx_matrix.c \
-	mx_pathfinder.c \
-	mx_ss.c \
-	digits.c \
-	main.c \
-	mx_errorcase_2.c \
-	mx_isalf.c \
-	mx_onlywords.c \
-	mx_printline.c \
-	printer.c
-
-INC = inc/pathfinder.h inc/libmx.h
-
+SRCS = src/main.c src/pathfinder.c src/path.c src/print_result.c src/printer.c src/isdigits.c src/mx_isalf.c src/digits.c src/mx_errorcase_1.c src/mx_errorcase_2.c src/count_lines.c src/mx_ss.c src/mx_printline.c src/mx_errors.c src/mx_matrix.c src/mx_onlywords.c src/file_open.c
+RSRCS = $(SRCS:src/%=%)
+INC = inc/libmx.h inc/pathfinder.h
 RINC = $(INC:inc/%=%)
-
 LIB = libmx/libmx.a
-
 RLIB = libmx.a
-
-RLOBJ = mx_isspace.o \
-	mx_binary_search.o \
+RLOBJ = mx_binary_search.o \
 	mx_bubble_sort.o \
 	mx_count_substr.o \
 	mx_count_words.o \
