@@ -1,7 +1,6 @@
 #include "pathfinder.h"
 
 static int loc(char **arr, char *s);
-
 int **mx_matrix(char *v) {
     char *s = mx_file_to_str(v);
     char **arr = mx_ss(s, '-', ',', '\n');
@@ -15,8 +14,15 @@ int **mx_matrix(char *v) {
         }
     }
     for (int i = 1; arr[i] != NULL; i+=3) {
-        matrix[loc(arr, arr[i])][loc(arr, arr[i+1])] = digits(arr[i+2]);
-        matrix[loc(arr, arr[i+1])][loc(arr, arr[i])] = digits(arr[i+2]);
+        if (matrix[loc(arr, arr[i])][loc(arr, arr[i+1])] != 0 &&
+         matrix[loc(arr, arr[i])][loc(arr, arr[i+1])] > digits(arr[i+2])) {
+            matrix[loc(arr, arr[i])][loc(arr, arr[i+1])] = digits(arr[i+2]);
+            matrix[loc(arr, arr[i+1])][loc(arr, arr[i])] = digits(arr[i+2]);
+        }
+         if (matrix[loc(arr, arr[i])][loc(arr, arr[i+1])] == 0) {
+            matrix[loc(arr, arr[i])][loc(arr, arr[i+1])] = digits(arr[i+2]);
+            matrix[loc(arr, arr[i+1])][loc(arr, arr[i])] = digits(arr[i+2]);
+        }
     }
     return matrix;
 }

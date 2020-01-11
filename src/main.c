@@ -1,38 +1,7 @@
 #include <stdio.h>
 #include "pathfinder.h"
 
-int **getm() //эта функция вам не нужна
-{
-    int **mat = (int **)malloc(5 * sizeof(int *));
-    int mat2[5][5] = {
-        {0,  11, 10, 0, 0},
-        {11, 0,  0,  5, 0},
-        {10, 0,  0,  6, 15},
-        {0,  5,  6,  0, 4},
-        {0,  0,  15, 4, 0}
-    };
 
-    for (int i = 0; i < 5; i++)
-    {
-        mat[i] = (int *)malloc(5 * sizeof(int));
-        for (int j = 0; j < 5; j++)
-            mat[i][j] = mat2[i][j];
-    }
-    return mat;
-}
-
-char **get_names() //и эта тоже
-{
-    char **names = (char **)malloc(5 * sizeof(char *));
-
-    for (int i = 0; i < 5; i++)
-    {
-        names[i] = (char *)malloc(2 *sizeof(char));
-        names[i][0] = 65 + i;
-        names[i][1] = '\0'; //шо ты вылупился?
-    }
-    return names;
-}
 
 //это может пригодится
 void clean_mat(int ***mat, int size)

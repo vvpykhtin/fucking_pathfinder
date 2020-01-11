@@ -1,7 +1,6 @@
 #include "pathfinder.h"
 
-static t_pf **create_pf(int **mat, int size)
-{
+static t_pf **create_pf(int **mat, int size) {
     t_pf **pf = (t_pf **)malloc(size * sizeof(t_pf *));
     int *edges = NULL;
 
@@ -42,22 +41,15 @@ static void add_path(t_pf **pf, int i, int k, int j)
     }
 }
 
-t_pf **pathfinder(int **mat, int size)
-{
+t_pf **pathfinder(int **mat, int size) {
     t_pf **pf = create_pf(mat, size);
 
-    for (int k = 0; k < size; k++)
-    {
-        for (int i = 0; i < size; i++)
-        {
-            for (int j = 0; j < size; j++)
-            {
-                if (pf[i][k].val && pf[k][j].val && i != j)
-                {
-                    if (pf[i][j].val >= pf[i][k].val + pf[k][j].val || !pf[i][j].val)
-                    {
-                        if (pf[i][j].val > pf[i][k].val + pf[k][j].val || !pf[i][j].val)
-                        {
+    for (int k = 0; k < size; k++) {
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < size; j++) {
+                if (pf[i][k].val && pf[k][j].val && i != j) {
+                    if (pf[i][j].val >= pf[i][k].val + pf[k][j].val || !pf[i][j].val) {
+                        if (pf[i][j].val > pf[i][k].val + pf[k][j].val || !pf[i][j].val) {
                             pf[i][j].val = pf[i][k].val + pf[k][j].val;
                             clean_path(&pf[i][j].path);
                         }

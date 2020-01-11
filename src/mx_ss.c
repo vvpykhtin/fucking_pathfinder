@@ -15,7 +15,7 @@ char **mx_ss(const char *r, char c, char f, char d)
     {
 	return NULL;
     }
-char *s =  (char *)r;
+    char *s =  (char *)r;
     int size = count_lines(s) * 3 -2;
     char **arr = malloc((size + 1) * sizeof(char *));
     for(int i = 0; i < size; i++)
